@@ -1,7 +1,3 @@
-.home-title {
-    color: red;
-}
-
 .first-block {
     min-height: 30rem;
     position: relative;
@@ -55,4 +51,55 @@
     animation-fill-mode: both;
     animation-name: bounce-title;
   }
-  
+
+.tops {
+  width: 80%; 
+  height: 300px; 
+  border-radius: 21px 21px 0 0;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background: url("/assets/tops.jpg");
+}
+
+.leggings {
+  width: 80%; 
+  height: 300px; 
+  border-radius: 21px 21px 0 0;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background: url("/assets/leggingsss.jpg");
+}
+
+.headbands {
+  width: 80%; 
+  height: 300px; 
+  border-radius: 21px 21px 0 0;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background: url("/assets/headband.jpg");
+}
+
+.sets {
+  width: 80%; 
+  height: 300px; 
+  border-radius: 21px 21px 0 0;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background: url("/assets/sets.jpg");
+}
+
+.product-card {
+  overflow: hidden;
+  background: #fff;
+  cursor: default;
+  transition: all 400ms ease;
+}
+
+.product-card:hover {
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2%);
+}
