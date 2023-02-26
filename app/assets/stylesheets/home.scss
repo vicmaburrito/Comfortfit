@@ -103,3 +103,20 @@
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
   transform: translateY(-2%);
 }
+
+
+@media (max-width: 992px) {
+  .product-card {
+     margin-top: 2rem;
+     margin-bottom: 2rem;
+     border-radius: 30px;
+     box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .bg-products {
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background: url("/assets/bg-products.jpg");
+  }
+}
