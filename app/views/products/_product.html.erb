@@ -4,19 +4,19 @@
             <div class="row">
                 <div class="col-lg-5 col-md-5 col-sm-6">
                     <div class="white-box text-center">
-                      <% if @product.images.attached? %>
-                        <%= image_tag url_for(@product.images[0]), width:'300px', class: "rounded" %>
-                      <% end %>
+                        <% if @product.images.attached? %>
+                          <%= image_tag url_for(@product.images.first), width:'300px', class: "rounded" %>
+                        <% end %>
                     </div>
                 </div>
                 <div class="col-lg-7 col-md-7 col-sm-6">
-                    <h3 class="card-title mt-5 navbar-title"><%= @product.name %></h3>
-                    <span class="navbar-title price">
+                    <h3 class="card-title mt-5 dm-serif-font"><%= @product.name %></h3>
+                    <span class="dm-serif-font price">
                       <b>$<%= @product.price %>.MX</b>
                       <del class="color-muted fs-lg me-3">$500.MX</del>
                     </span>
                     <div class="bord mt-5 mb-3"></div>
-                    <p class="product-description"><%= @product.description %></p>
+                    <p class="product-description indie-font"><%= @product.description %></p>
                     <h3 class="box-title mt-5">Stock:</h3>
                     <ul class="list-unstyled">
                         <li><%= @product.stock %> piezas</li>
@@ -67,6 +67,21 @@
     </div>
 </div>
 
-<style>
-
-</style>
+<div class="container">
+  <h2 class="mt-5 font-weight-light indie-font text-center">
+    <span class="highlight-container">
+      <span class="highlight">
+        Galeria de <%= @product.name %>
+      </span>
+    </span>
+  </h2>
+  <div class="row py-3 shadow-5">
+    <%if @product.images.attached?%>
+      <%@product.images.each do |image| %>
+        <div class="col-4 mt-1">
+          <%= image_tag url_for(image), class: "rounded w-75" %>
+        </div>
+      <%end%>
+    <%end%>
+  </div>
+</div>

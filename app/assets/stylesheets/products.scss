@@ -104,19 +104,13 @@ h1.heading {
 }
 
 .color-muted {
-    color: #a7a6a2;
+    color: #a7a6a2 !important;
 }
 
 .product-description {
   color:  #504f4b;
-  font-family: 'Indie Flower', cursive;
   font-size: 20px;
 }
-
-.carousel-inner img {
-    margin: 0 auto;
-    width: 100%;
-  }
 
 .table-product.table-striped tbody tr:nth-of-type(odd) {
     background-color: #f3f8fa!important
@@ -124,4 +118,24 @@ h1.heading {
 .table-product td{
     border-top: 0px solid #dee2e6 !important;
     color: #728299!important;
+}
+
+.highlight-container, .highlight {
+  position: relative;
+}
+
+.highlight-container:before {
+  content: " ";
+  display: block;
+  height: 90%;
+  width: 100%;
+  margin-left: -3px;
+  margin-right: -3px;
+  position: absolute;
+  background: #fae1ea;
+  transform: rotate(2deg);
+  top: -1px;
+  left: -1px;
+  border-radius: 20% 25% 20% 24%;
+  padding: 10px 3px 3px 10px;
 }
