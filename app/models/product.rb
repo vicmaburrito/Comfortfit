@@ -6,4 +6,7 @@ class Product < ApplicationRecord
     large: 2
   }
   has_many_attached :images
+
+  validates :colors, presence: true
+  COLORS = %i[yellow red green blue gray]
 end

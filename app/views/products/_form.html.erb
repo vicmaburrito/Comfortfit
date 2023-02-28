@@ -17,8 +17,11 @@
   </div>
 
   <div>
-    <%= form.label :color, style: "display: block" %>
-    <%= form.text_field :color %>
+  <span> colors: </span>
+    <% Product::COLORS.each do |key| %>
+        <%= form.check_box :colors, { multiple: true, checked: form.object.colors&.include?(key.to_s) }, key, nil %>
+        <%= form.label key %>
+    <% end %>
   </div>
 
   <div>
@@ -45,7 +48,14 @@
     <%= form.file_field :images, multiple: true %>
   </div>
 
+  <%#binding.pry%>
+    <%if @product.images.attached?%>
+      <%@product.images.each do |image| %>
+          <%= image_tag url_for(image), class: "rounded w-25" %>
+      <%end%>
+    <%end%>
   <div>
+
     <%= form.submit %>
   </div>
 

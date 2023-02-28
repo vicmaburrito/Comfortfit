@@ -33,7 +33,13 @@
                                 </tr>
                                 <tr>
                                     <td>Colores: </td>
-                                    <td><%= product.color %></td>
+                                    <td>
+                                      <div class="d-flex">
+                                        <% product.colors.each do |color| %>
+                                          <div class="rounded-circle mx-1" style="width: 20px; height: 20px; background-color: <%= color %>;"></div>
+                                        <%end %>
+                                      </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Seat Lock Included</td>
@@ -58,7 +64,7 @@
                 <% if user_signed_in? %>
                   <div class="pt-4 col-md-6 offset-md-4">
                     <%= link_to 'Editar', edit_product_path(@product), class: " btn btn-warning" %>
-                    <%= link_to "Eliminar Producto", @product, method: :delete, data: { confirm: '¿Estás seguro de eliminar este producto?'}, class: "btn btn-danger" %>
+                    <%= link_to "Eliminar Producto", product, data: { turbo_method: :delete }, class: "btn btn-danger" %>
                     <%= link_to 'Volver', products_path, class: "btn btn-dark" %>
                   </div>
                 <%end%>
@@ -75,6 +81,8 @@
       </span>
     </span>
   </h2>
+    <%#  binding.pry%>
+
   <div class="row py-3 shadow-5">
     <%if @product.images.attached?%>
       <%@product.images.each do |image| %>
