@@ -13,5 +13,5 @@ class Product < ApplicationRecord
     beige black brown blueviolet coral darkgoldenrod darkblue
     darkgreen salmon coral darkred gold greenyellow darkolivegreen
     hotpink indianred lightcoral maroon mediumslateblue olive peru skyblue silver
-  ]
+  ].freeze
 end
