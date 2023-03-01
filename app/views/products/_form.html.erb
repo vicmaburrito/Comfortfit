@@ -2,7 +2,6 @@
   <% if product.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
-
       <ul>
         <% product.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,52 +10,69 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.number_field :price %>
-  </div>
+  <div class="container">
+    <div class="form-outline mb-4">
+      <label class="form-label dm-serif-font products-label">Nombre del Producto:</label>
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
 
-  <div>
-  <span> colors: </span>
-    <% Product::COLORS.each do |key| %>
-        <%= form.check_box :colors, { multiple: true, checked: form.object.colors&.include?(key.to_s) }, key, nil %>
-        <%= form.label key %>
-    <% end %>
-  </div>
+    <div class="form-outline mb-4">
+      <label class="form-label dm-serif-font products-label">Colores:</label>
+      <div class="container d-flex">
+        <div class="row">
+          <% Product::COLORS.each do |key| %>
+            <div class="col-lg-3 col-xl-3 col-sm-6 d-flex">
+              <%= form.check_box :colors, { multiple: true, checked: form.object.colors&.include?(key.to_s), class:"form-check-input" }, key, nil %>
+              <%= form.label key, class:"mx-1" %>
+              <div class="rounded-circle mx-1" style="width: 20px; height: 20px; background-color: <%= key %>;"></div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
 
-  <div>
-    <%= form.label :size, style: "display: block" %>
-    <%= form.text_field :size %>
-  </div>
+    <div class="form-outline mb-4">
+      <label class="form-label dm-serif-font products-label">Tallas:</label> 
+      <p class="text-muted"> únicos valores de tallas permitidos: <b><em>small, medium, large</em></b></p>
+      <%= form.text_field :size, class: "form-control" %>
+    </div>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
+    <div class="form-outline mb-4">
+      <label class="form-label dm-serif-font products-label">Precio:</label> 
+      <%= form.number_field :price, class: "form-control"  %>
+    </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
+    <div class="form-outline mb-4">
+      <label class="form-label dm-serif-font products-label">En existencia:</label> 
+      <%= form.number_field :stock, class: "form-control"  %>
+    </div>
 
-  <div>
-    <%= form.label :stock, style: "display: block" %>
-    <%= form.number_field :stock %>
-  </div>
+    <div class="form-outline mb-4">
+      <label class="form-label dm-serif-font products-label">Descripcion del Producto: </label>
+      <%= form.text_area :description,  class: "form-control", rows: "4" %>
+    </div>
 
-  <div class="field">
-    <%= form.file_field :images, multiple: true %>
-  </div>
+    <div class="field form-outline mb-4">
+      <label class="form-label dm-serif-font products-label">Añade imagenes: </label>
+      <% if @product.images.attached?%>
+        <div>
+          <p class="text-muted">Recuerda que si editas el producto con images ya añadidas debes <b><em>subir de nuevo cada imagen</em></b></p>
+        </div>
+      <%end%>
+      <%= form.file_field :images, multiple: true, class:"form-control form-control-lg" %>
+    </div>
 
-  <%#binding.pry%>
-    <%if @product.images.attached?%>
-      <%@product.images.each do |image| %>
-          <%= image_tag url_for(image), class: "rounded w-25" %>
+    <% if @product.images.attached?%>
+    <div>
+      <label class="form-label dm-serif-font products-label">Imagenes añadidas: </label>
+    </div>
+      <% @product.images.each do |image| %>
+        <%= image_tag url_for(image), class: "rounded w-25" %>
       <%end%>
     <%end%>
-  <div>
-
-    <%= form.submit %>
+  
+    <div class="text-center mt-5">
+      <%= form.submit "Guardar", class: "btn btn-primary btn-block mb-4" %>
+    </div>
   </div>
-
 <% end %>
