@@ -81,13 +81,19 @@
       </span>
     </span>
   </h2>
-    <%#  binding.pry%>
 
   <div class="row py-3 shadow-5">
     <%if @product.images.attached?%>
       <%@product.images.each do |image| %>
         <div class="col-4 mt-1">
-          <%= image_tag url_for(image), class: "rounded w-75" %>
+          <div>
+            <%= image_tag url_for(image), class: "rounded w-75" %>
+          </div>
+          <% if user_signed_in? %>
+            <div>
+              <%= link_to "Eliminar Imagen", purge_attachment_path(image), data: { turbo_method: :delete }, class: "btn btn-danger px-3" %>
+            </div>
+          <% end %>
         </div>
       <%end%>
     <%end%>
