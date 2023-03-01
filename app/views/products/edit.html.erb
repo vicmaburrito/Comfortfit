@@ -1,0 +1,14 @@
+<h1 class="text-center dm-serif-font mt-4">Editar Producto</h1>
+
+<%= render "form", product: @product %>
+
+<div class="container mb-5">
+  <div class="row">
+    <div class="col-6 text-center">
+      <%= link_to "Ver producto", @product, class: "btn btn-light" %>
+    </div>
+    <div class="col-6 text-center">
+      <%= link_to "Volver", products_path, class: "btn btn-dark" %>
+    </div>
+  </div>
+</div>

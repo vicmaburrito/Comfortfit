@@ -1,0 +1,48 @@
+<div class="all-products">
+  <section class="wrapper">
+    <div class ="container-data">
+      <div>
+        <h1 class="dm-serif-font heading">comfortfit </h1>
+      </div>
+      <div class="content">
+        <div class="container">
+          <div class="row">
+            <% @products.each do |product| %>
+              <div class="col-xs-12 col-sm-4">
+                <div class="card">
+                    <%= link_to product, class: "img-card" do %>
+                      <% if product.images.attached? %>
+                          <%= image_tag(product.images[0]) %>
+                      <%end%>
+                    <%end %>
+                    <div class="card-content">
+                        <%= link_to product.name, product, alt: "product image", class: "card-title mt-5 dm-serif-font text-muted text-decoration-none" %>
+                      <h6 class=""><b>Available colors:</b>
+                      </h6>
+                                      <div class="d-flex">
+                                        <% product.colors.each do |color| %>
+                                          <div class="rounded-circle mx-1" style="width: 20px; height: 20px; background-color: <%= color %>;"></div>
+                                        <%end %>
+                                      </div>
+                      <h6 class=""><b>Precio:</b>
+                        <span>$</span><%= product.price %><span>.MX</span>
+                      </h6>
+                      <h6 class=""><b>Size: </b>
+                        <span>$</span><%= product.size %><span>.MX</span>
+                      </h6>
+                      <h6 class=""><b>Cantidad en existencia:</b>
+                        <%= product.stock %>
+                      </h6>
+                    </div>
+                    <div class="card-read-more">
+                      <%= link_to 'Ver Producto', product, class: "btn btn-light text-dark " %>
+                    </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

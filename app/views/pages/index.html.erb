@@ -1,0 +1,49 @@
+<%# <h1 class="home-title"> Hello From Home</h1> %>
+<%#= image_tag asset_path('main.jpg'), alt: 'logo', height: '35vh', width: '35vh', :style => 'margin-right:2vh;' %>
+<section class="first-block d-flex align-items-center" id="first-block">
+  <div class="container px-4 px-lg-5 text-center">
+    <div class="scale-down-center">
+      <h3 class="mb-5 text-white"><em> Comodidad fitness para ti.</em></h3>
+      <h3 class="text-white"><em>Diseños únicos para una personalidad única</em></h3>
+      <a class="btn button-bg rounded-1 px-5 btn-xl btn-lg mt-5 title-animation" href="/">Compra Ahora</a>
+    </div>
+  </div>
+</section>
+<div class="w-100 bg-products">
+  <div class="row m-0">
+    <div class="bg-light product-card col-lg-6 col-xl-6 col-md-6 col-sm-12 col-xs-12 text-center overflow-hidden">
+      <div class="my-3 py-3">
+        <h2 class="display-5">Tops</h2>
+        <p class="lead">Elige tu estilo, elige tu top deportivo.</p>
+      </div>
+      <div class="tops mb-3 shadow-sm mx-auto"></div>
+      <%= link_to "Ver más", products_path, class: "my-5 px-5 btn btn-dark btn-lg" %>
+    </div>
+    <div class="bg-light product-card col-lg-6 col-xl-6 col-md-6 col-sm-12 col-xs-12 text-center overflow-hidden">
+      <div class="my-3 p-3">
+        <h2 class="display-5">Leggings</h2>
+        <p class="lead">No dejes que nada te detenga,<br> siéntete libre con nuestros leggings deportivos.</p>
+      </div>
+      <div class="leggings mb-3 shadow-sm mx-auto"></div>
+      <%= link_to "Ver más", products_path, class: "my-5 px-5 btn btn-dark btn-lg" %>
+    </div>
+  </div>
+  <div class="row m-0">
+    <div class="bg-light product-card col-lg-6 col-xl-6 col-md-6 col-sm-12 col-xs-12  text-center overflow-hidden">
+      <div class="my-3 p-3">
+        <h2 class="display-5">Sport Headbands</h2>
+        <p class="lead">No dejes que nada te detenga,<br> siéntete libre con nuestros leggings deportivos.</p>
+      </div>
+      <div class="headbands mb-3 shadow-sm mx-auto"></div>
+      <%= link_to "Ver más", products_path, class: "my-5 px-5 btn btn-dark btn-lg" %>
+    </div>
+    <div class="bg-light product-card col-lg-6 col-xl-6 col-md-6 col-sm-12 col-xs-12 text-center overflow-hidden">
+      <div class="my-3 py-3">
+        <h2 class="display-5">Set's</h2>
+        <p class="lead">Elige tu estilo, elige tu top deportivo.</p>
+      </div>
+      <div class="sets mb-3 shadow-sm mx-auto"></div>
+      <%= link_to "Ver más", products_path, class: "my-5 px-5 btn btn-dark btn-lg" %>
+    </div>
+  </div>
+</div>
